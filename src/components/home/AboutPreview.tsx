@@ -1,0 +1,118 @@
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useSettings } from '../../context/SettingsContext';
+
+const highlights = [
+  '100% Solid Teak Wood — No MDF or Plywood',
+  'Hand-crafted by master artisans',
+  '31+ exclusive design codes',
+  'Custom sizes available on request',
+  'Quality inspected before delivery',
+];
+
+export default function AboutPreview() {
+  const { settings } = useSettings();
+
+  return (
+    <section className="section-padding bg-white dark:bg-brand-900">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+          {/* Image Collage */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
+                  <img
+                    src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Workshop craftsmanship"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
+                  <img
+                    src="https://images.pexels.com/photos/2079246/pexels-photo-2079246.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Teak wood grain"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+              <div className="pt-8 space-y-4">
+                <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
+                  <img
+                    src="https://images.pexels.com/photos/4846097/pexels-photo-4846097.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Door detail carving"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
+                  <img
+                    src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Premium door"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Stat badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-8 py-4 rounded-2xl shadow-brand-lg text-center whitespace-nowrap"
+            >
+              <p className="text-3xl font-display font-bold">31+ Designs</p>
+              <p className="text-brand-200 text-sm">All Handcrafted</p>
+            </motion.div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-badge mb-4 inline-flex">About Us</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-900 dark:text-white mt-2 mb-5">
+              Crafting Excellence in Every Door
+            </h2>
+            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+              {settings.about_content || 'Rama Door is a premier teak wood door manufacturing company based in Kutch, Gujarat. Founded by Pratik Keshrani and Kewal Keshrani, we combine traditional craftsmanship with modern design.'}
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8">
+              Every door that leaves our workshop carries the mark of exceptional craftsmanship,
+              quality materials, and unwavering attention to detail.
+            </p>
+
+            <ul className="space-y-3 mb-9">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm">
+                  <CheckCircle className="w-5 h-5 text-accent-500 flex-shrink-0" />
+                  <span className="text-neutral-700 dark:text-neutral-300">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold border-2 border-brand-600 text-brand-600 dark:text-accent-300 dark:border-accent-400 hover:bg-brand-600 hover:text-white dark:hover:bg-accent-500 dark:hover:text-white transition-all duration-300 group"
+            >
+              Learn About Us
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

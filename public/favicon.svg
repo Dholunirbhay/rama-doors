@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="doorFg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A4D78"/>
+      <stop offset="100%" style="stop-color:#071F35"/>
+    </linearGradient>
+    <linearGradient id="doorBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4FAFD1"/>
+      <stop offset="100%" style="stop-color:#7ED3E8"/>
+    </linearGradient>
+  </defs>
+  <!-- Door back panel (open) -->
+  <rect x="10" y="12" width="38" height="76" rx="3" fill="url(#doorBg)" opacity="0.85"/>
+  <!-- Door frame -->
+  <rect x="24" y="8" width="54" height="84" rx="4" fill="url(#doorFg)"/>
+  <!-- Door panel top -->
+  <rect x="31" y="16" width="40" height="28" rx="2" fill="none" stroke="#4FAFD1" stroke-width="2.5" opacity="0.8"/>
+  <!-- Door panel bottom -->
+  <rect x="31" y="50" width="40" height="34" rx="2" fill="none" stroke="#4FAFD1" stroke-width="2.5" opacity="0.8"/>
+  <!-- Door handle -->
+  <circle cx="62" cy="52" r="3.5" fill="#7ED3E8"/>
+</svg>
