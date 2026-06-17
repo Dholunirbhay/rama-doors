@@ -1,4 +1,5 @@
 import { cn } from '../../lib/utils';
+import { useSettings } from '../../context/SettingsContext';
 
 interface LogoProps {
   className?: string;
@@ -41,6 +42,7 @@ export function DoorIcon({ className }: { className?: string }) {
 
 export default function Logo({ className, size = 'md', variant = 'full' }: LogoProps) {
   const sizes = sizeMap[size];
+  const { settings } = useSettings();
 
   if (variant === 'icon') {
     return (
@@ -53,7 +55,7 @@ export default function Logo({ className, size = 'md', variant = 'full' }: LogoP
   return (
     <div className={cn('flex items-center', className)}>
       <img
-        src="/ramadoorslogo.png"
+        src={settings.logo_url || '/ramadoorslogo.png'}
         alt="Rama Door - Premium Teak Wood Door Manufacturer"
         className={cn(sizes.logo, 'w-auto object-contain')}
         draggable={false}

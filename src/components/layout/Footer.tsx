@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Linkedin, FileText } from 'lucide-react';
 import { useSettings } from '../../context/SettingsContext';
 import { getWhatsAppUrl, getTelUrl, getMailtoUrl, getGoogleMapsUrl } from '../../lib/utils';
 
@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="lg:col-span-1 space-y-6">
             <Link to="/">
               <img
-                src="/ramadoorslogo.png"
+                src={settings.logo_url || '/ramadoorslogo.png'}
                 alt="Rama Door"
                 className="h-12 w-auto brightness-0 invert opacity-90"
               />
@@ -171,6 +171,18 @@ export default function Footer() {
                 <Clock className="w-4 h-4 flex-shrink-0 text-accent-400" />
                 <span>{settings.working_hours}</span>
               </li>
+              {settings.gst_number && (
+              <li className="flex items-center gap-3 text-brand-400 text-sm">
+                <FileText className="w-4 h-4 flex-shrink-0 text-accent-400" />
+                <span>GST: {settings.gst_number}</span>
+              </li>
+              )}
+              {settings.pan_number && (
+              <li className="flex items-center gap-3 text-brand-400 text-sm">
+                <FileText className="w-4 h-4 flex-shrink-0 text-accent-400" />
+                <span>PAN: {settings.pan_number}</span>
+              </li>
+              )}
             </ul>
           </div>
         </div>

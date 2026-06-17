@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, FileText } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useSettings } from '../../context/SettingsContext';
 import { getWhatsAppUrl, getTelUrl, getMailtoUrl, getGoogleMapsUrl } from '../../lib/utils';
@@ -270,6 +270,31 @@ if (error) throw error;
                     <p className="font-medium text-brand-900 dark:text-white">{settings.working_hours}</p>
                   </div>
                 </div>
+                {settings.gst_number && (
+                <div className="flex items-start gap-4 mt-6">
+                  <div className="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-700/50 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-brand-600 dark:text-accent-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">GST Number</p>
+                    <p className="font-medium text-brand-900 dark:text-white">{settings.gst_number}</p>
+                  </div>
+                </div>
+                )}
+
+                {settings.pan_number && (
+                <div className="flex items-start gap-4 mt-6">
+                  <div className="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-700/50 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-brand-600 dark:text-accent-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">PAN Number</p>
+                    <p className="font-medium text-brand-900 dark:text-white">{settings.pan_number}</p>
+                  </div>
+                </div>
+                )}
+
+
               </div>
             </motion.div>
           </div>
@@ -284,23 +309,16 @@ if (error) throw error;
             <h2 className="text-2xl font-display font-bold text-brand-900 dark:text-white mb-6">
               Find Us
             </h2>
-            <div className="bg-brand-200 dark:bg-brand-800 rounded-xl overflow-hidden h-80 relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-brand-500 mx-auto mb-4" />
-                  <p className="text-brand-700 dark:text-brand-300 mb-4">
-                    Rama Door, Kutch, Gujarat
-                  </p>
-                  <a
-                    href={getGoogleMapsUrl(settings.address)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                  >
-                    Open in Google Maps
-                  </a>
-                </div>
-              </div>
+            <div className="rounded-xl overflow-hidden h-80 shadow-lg">
+              <iframe
+                src={settings.google_map_url}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Rama Doors Location"
+              />
             </div>
           </motion.div>
         </div>

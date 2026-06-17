@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Trash2, Image as ImageIcon } from 'lucide-react';
-import { galleryStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { GalleryImage } from '../../types';
 
 export default function AdminGallery() {
@@ -16,18 +16,34 @@ export default function AdminGallery() {
     fetchGallery();
   }, []);
 
-  function fetchGallery() {
-    const data = galleryStore.getAll();
-    setImages(data);
-    setLoading(false);
+  async function fetchGallery() {
+  setLoading(true);
+
+  const { data, error } = await supabase
+    .from('gallery')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    setImages([]);
+  } else {
+    setImages(data || []);
   }
+
+  setLoading(false);
+}
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
 
     try {
-      galleryStore.add(formData);
+      const { error } = await supabase
+        .from('gallery')
+        .insert([formData]);
+
+      if (error) throw error;
       setFormData({ title: '', image_url: '', category: '' });
       setShowForm(false);
       fetchGallery();
@@ -39,11 +55,21 @@ export default function AdminGallery() {
     }
   };
 
-  function handleDelete(id: string) {
-    galleryStore.delete(id);
-    setImages(images.filter((i) => i.id !== id));
-    setDeleteId(null);
+  async function handleDelete(id: string) {
+  const { error } = await supabase
+    .from('gallery')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error(error);
+    alert('Delete failed');
+    return;
   }
+
+  setImages(images.filter((i) => i.id !== id));
+  setDeleteId(null);
+}
 
   return (
     <div>

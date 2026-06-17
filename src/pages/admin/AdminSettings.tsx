@@ -23,10 +23,12 @@ export default function AdminSettings() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+      
     setSaving(true);
     setSuccess(false);
 
     try {
+        
       settingsStore.save(formData);
       refreshSettings();
       setSuccess(true);
@@ -157,6 +159,62 @@ export default function AdminSettings() {
                   className="w-full px-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
                 />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-700 dark:text-brand-300 mb-2">
+                   GST Number
+                </label>
+                <input
+                  type="text"
+                  name="gst_number"
+                  value={formData.gst_number || ''}
+                  onChange={handleChange}
+                  placeholder="24ABCDE1234F1Z5"
+                  className="w-full px-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
+                  />
+              </div>
+              
+              <div>
+              <label className="block text-sm font-medium text-brand-700 dark:text-brand-300 mb-2">
+                PAN Number
+              </label>
+              <input
+                type="text"
+                name="pan_number"
+                value={formData.pan_number || ''}
+                onChange={handleChange}
+                placeholder="ABCDE1234F"
+                className="w-full px-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-brand-700 dark:text-brand-300 mb-2">
+                Google Map Embed URL
+              </label>
+              <input
+                type="url"
+                name="google_map_url"
+                value={formData.google_map_url || ''}
+                onChange={handleChange}
+                placeholder="Paste Google Maps embed URL"
+                className="w-full px-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
+              />
+            </div>  
+
+            <div>
+              <label className="block text-sm font-medium text-brand-700 dark:text-brand-300 mb-2">
+                Logo URL
+              </label>
+              <input
+                type="text"
+                name="logo_url"
+                value={formData.logo_url || ''}
+                onChange={handleChange}
+                placeholder="/ramadoorslogo.png"
+                className="w-full px-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
+              />
+            </div>
+
             </div>
           </div>
         </div>

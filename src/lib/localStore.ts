@@ -102,6 +102,10 @@ const DEFAULT_SETTINGS: AppSettings = {
   address: 'Meghpar (Borichi), Anjar, Kutch, Gujarat - 370110',
   working_hours: '9:00 AM to 8:00 PM',
   instagram: '',
+  gst_number: '',
+  pan_number: '',
+  google_map_url: 'https://maps.google.com/maps?q=Meghpar%20Borichi%20Anjar%20Kutch&t=&z=13&ie=UTF8&iwloc=&output=embed',
+  logo_url: '/ramadoorslogo.png',
   about_content: 'Rama Door is a premier teak wood door manufacturing company based in Kutch, Gujarat. Founded by Pratik Keshrani and Kewal Keshrani, we combine traditional craftsmanship with modern design aesthetics to create doors that are both beautiful and built to last.',
   about_mission: 'To deliver premium quality teak wood doors that enhance the beauty and security of homes and businesses across India.',
   about_vision: 'To become the most trusted manufacturer of handcrafted luxury wooden doors in India.',
@@ -246,7 +250,7 @@ export const inquiriesStore = {
 
 // ─── Admin Auth ───────────────────────────────────────────────────────────────
 const ADMIN_EMAIL = 'admin@ramadoor.com';
-const ADMIN_PASSWORD = '12345678';
+const ADMIN_PASSWORD = 'Rama@2026#Admin';
 
 export const adminAuth = {
   login(email: string, password: string): boolean {

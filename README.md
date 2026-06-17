@@ -1,3 +1,20 @@
-# rama-doors
+# Rama Doors
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-ktvvpxvs)
+Premium Teak Wood Door Manufacturer Website
+
+## Features
+
+- Product Management
+- Gallery Management
+- Inquiry Management
+- Admin Panel
+- WhatsApp Integration
+- Responsive Design
+
+## Tech Stack
+
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Vite

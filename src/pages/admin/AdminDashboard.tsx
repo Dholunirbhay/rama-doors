@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Package, Image, MessageSquare, Settings } from 'lucide-react';
-import { productsStore, galleryStore, inquiriesStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 
 interface Stats {
   products: number;
@@ -22,20 +22,29 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const products = productsStore.getAll();
-    const gallery = galleryStore.getAll();
-    const inquiries = inquiriesStore.getAll();
+  async function fetchDashboardData() {
+    setLoading(true);
+
+    const { data: products } = await supabase.from('products').select('*');
+    const { data: gallery } = await supabase.from('gallery').select('*');
+    const { data: inquiries } = await supabase
+      .from('inquiries')
+      .select('*')
+      .order('created_at', { ascending: false });
 
     setStats({
-      products: products.length,
-      gallery: gallery.length,
-      inquiries: inquiries.length,
-      unreadInquiries: inquiries.filter((i) => !i.is_read).length,
+      products: products?.length || 0,
+      gallery: gallery?.length || 0,
+      inquiries: inquiries?.length || 0,
+      unreadInquiries: inquiries?.filter((i) => !i.is_read).length || 0,
     });
 
-    setRecentInquiries(inquiries.slice(0, 5));
+    setRecentInquiries((inquiries || []).slice(0, 5));
     setLoading(false);
-  }, []);
+  }
+
+  fetchDashboardData();
+}, []);
 
   const statCards = [
     { name: 'Products', value: stats.products, icon: Package, path: '/admin/products', color: 'brand' },

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
-import { galleryStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { GalleryImage } from '../../types';
 
 const FALLBACK = 'https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800';
@@ -12,8 +12,23 @@ export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    setImages(galleryStore.getAll());
-  }, []);
+  async function fetchGallery() {
+    const { data, error } = await supabase
+      .from('gallery')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error(error);
+      setImages([]);
+      return;
+    }
+
+    setImages(data || []);
+  }
+
+  fetchGallery();
+}, []);
 
   const categories = ['All', ...Array.from(new Set(images.map(i => i.category).filter(Boolean)))];
   const filtered = activeCategory === 'All' ? images : images.filter(i => i.category === activeCategory);

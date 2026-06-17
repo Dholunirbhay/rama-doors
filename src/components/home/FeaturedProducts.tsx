@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { productsStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { Product } from '../../types';
 import ProductCard from '../products/ProductCard';
 
@@ -10,8 +10,23 @@ export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    setProducts(productsStore.getFeatured().slice(0, 6));
-  }, []);
+  async function fetchFeaturedProducts() {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .eq('is_featured', true)
+      .limit(6);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    setProducts(data || []);
+  }
+
+  fetchFeaturedProducts();
+}, []);
 
   return (
     <section className="section-padding bg-white dark:bg-brand-900">
@@ -56,7 +71,7 @@ export default function FeaturedProducts() {
             to="/products"
             className="inline-flex items-center gap-2 font-semibold text-brand-600 dark:text-accent-300 hover:text-brand-700 dark:hover:text-accent-200 group transition-colors"
           >
-            View All 31+ Designs
+            View All Designs
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>

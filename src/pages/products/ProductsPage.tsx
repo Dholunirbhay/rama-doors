@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, X } from 'lucide-react';
-import { productsStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { Product } from '../../types';
 import ProductCard from '../../components/products/ProductCard';
 
@@ -14,8 +14,23 @@ export default function ProductsPage() {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
 
   useEffect(() => {
-    setProducts(productsStore.getAll());
-  }, []);
+  async function fetchProducts() {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .order('design_code', { ascending: true });
+
+    if (error) {
+      console.error(error);
+      setProducts([]);
+      return;
+    }
+
+    setProducts(data || []);
+  }
+
+  fetchProducts();
+}, []);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {

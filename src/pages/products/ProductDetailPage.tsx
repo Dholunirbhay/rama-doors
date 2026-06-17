@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Phone, MessageCircle, Star, Shield, TreePine } from 'lucide-react';
-import { productsStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { Product } from '../../types';
 import { useSettings } from '../../context/SettingsContext';
 import { getWhatsAppUrl, getTelUrl } from '../../lib/utils';
@@ -18,14 +18,41 @@ export default function ProductDetailPage() {
   const { settings } = useSettings();
 
   useEffect(() => {
+  async function fetchProduct() {
     if (!designCode) return;
-    const found = productsStore.getByCode(designCode);
-    setProduct(found || null);
-    if (found) {
-      setRelated(productsStore.getAll().filter(p => p.id !== found.id).slice(0, 3));
+
+    setLoading(true);
+
+    const formattedCode = designCode.replace('-', ' ');
+    
+
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .ilike('design_code', formattedCode)
+      .single();
+
+    if (error || !data) {
+      console.error(error);
+      setProduct(null);
+      setLoading(false);
+      return;
     }
+
+    setProduct(data);
+
+    const { data: relatedData } = await supabase
+      .from('products')
+      .select('*')
+      .neq('id', data.id)
+      .limit(3);
+
+    setRelated(relatedData || []);
     setLoading(false);
-  }, [designCode]);
+  }
+
+  fetchProduct();
+}, [designCode]);
 
   if (loading) {
     return (

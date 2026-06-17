@@ -47,6 +47,10 @@ export interface AppSettings {
   address: string;
   working_hours: string;
   instagram?: string;
+  gst_number?: string;
+  pan_number?: string;
+  google_map_url?: string;
+  logo_url?: string;
   facebook?: string;
   linkedin?: string;
   about_content?: string;
