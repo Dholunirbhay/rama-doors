@@ -108,7 +108,7 @@ export default function AdminGallery() {
                   Image URL
                 </label>
                 <input
-                  type="url"
+                  type="text"
                   value={formData.image_url}
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   required
@@ -187,7 +187,7 @@ export default function AdminGallery() {
               <img
                 src={image.image_url}
                 alt={image.title || 'Gallery Image'}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <button

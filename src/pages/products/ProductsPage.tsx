@@ -66,7 +66,7 @@ export default function ProductsPage() {
               Premium Teak Wood Doors
             </h1>
             <p className="text-xl text-brand-200 leading-relaxed">
-              Explore all 31 exclusive designs — from classic heritage panels to
+              Explore all various designs and customized designs — from classic heritage panels to
               contemporary minimalist entrances, each handcrafted to perfection.
             </p>
           </motion.div>

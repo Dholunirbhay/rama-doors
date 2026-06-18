@@ -78,14 +78,14 @@ export default function AboutPage() {
             >
               <div className="rounded-3xl overflow-hidden shadow-brand-lg">
                 <img
-                  src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="public/images/about-page.webp"
                   alt="Rama Door Workshop"
                   className="w-full h-[500px] object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-brand-600 text-white p-6 rounded-2xl shadow-brand-lg">
-                <p className="text-3xl font-display font-bold">31+</p>
-                <p className="text-brand-200">Unique Designs</p>
+                
+                <p className="text-brand-200">Customized Designs</p>
               </div>
             </motion.div>
           </div>

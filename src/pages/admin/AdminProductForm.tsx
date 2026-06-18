@@ -161,7 +161,7 @@ async function loadProduct() {
               Image URL
             </label>
             <input
-              type="url"
+              type="text"
               name="image_url"
               value={formData.image_url}
               onChange={handleChange}
@@ -175,7 +175,7 @@ async function loadProduct() {
               <img
                 src={formData.image_url}
                 alt="Preview"
-                className="w-48 h-36 object-cover"
+                className="w-48 h-36 object-contain"
               />
             </div>
           )}

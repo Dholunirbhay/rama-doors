@@ -58,8 +58,16 @@ export default function CTASection() {
               {
                 icon: Phone,
                 label: 'Phone',
-                value: settings.mobile,
-                href: getTelUrl(settings.mobile),
+                value: (
+                  <>
+                    <a href={getTelUrl(settings.mobile)} className="block hover:text-accent-300">
+                      {settings.mobile}
+                    </a>
+                    <a href="tel:+918780418018" className="block hover:text-accent-300">
+                      +91 8780418018
+                    </a>
+                  </>
+                ),
               },
               {
                 icon: MessageCircle,
@@ -104,7 +112,7 @@ export default function CTASection() {
                     {item.value}
                   </a>
                 ) : (
-                  <p className="text-white font-medium">{item.value}</p>
+                  <div className="text-white font-medium">{item.value}</div>
                 )}
               </div>
             ))}

@@ -113,7 +113,7 @@ export default function GalleryPage() {
                 <img
                   src={image.image_url}
                   alt={image.title || 'Gallery'}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
                   onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">

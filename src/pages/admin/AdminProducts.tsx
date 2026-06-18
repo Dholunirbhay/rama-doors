@@ -134,7 +134,7 @@ export default function AdminProducts() {
                       <img
                         src={product.image_url || 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=100'}
                         alt={product.name}
-                        className="w-16 h-12 object-cover rounded-lg"
+                        className="w-16 h-12 object-contain rounded-lg"
                       />
                     </td>
                     <td className="px-6 py-4 text-sm font-medium text-brand-600 dark:text-accent-300">

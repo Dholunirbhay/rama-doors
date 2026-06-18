@@ -6,7 +6,7 @@ import { useSettings } from '../../context/SettingsContext';
 const highlights = [
   '100% Solid Teak Wood — No MDF or Plywood',
   'Hand-crafted by master artisans',
-  '31+ exclusive design codes',
+  'Various designs and customized designs',
   'Custom sizes available on request',
   'Quality inspected before delivery',
 ];
@@ -31,14 +31,14 @@ export default function AboutPreview() {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="/images/about/about-door-1.avif"
                     alt="Workshop craftsmanship"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="https://images.pexels.com/photos/2079246/pexels-photo-2079246.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="/images/about/about-door-2.webp"
                     alt="Teak wood grain"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -47,14 +47,14 @@ export default function AboutPreview() {
               <div className="pt-8 space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="https://images.pexels.com/photos/4846097/pexels-photo-4846097.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="/images/about/about-door-3.webp"
                     alt="Door detail carving"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="/images/about/about-door-4.avif"
                     alt="Premium door"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -70,7 +70,7 @@ export default function AboutPreview() {
               transition={{ delay: 0.3 }}
               className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-8 py-4 rounded-2xl shadow-brand-lg text-center whitespace-nowrap"
             >
-              <p className="text-3xl font-display font-bold">31+ Designs</p>
+              <p className="text-3xl font-display font-bold">Customized designs</p>
               <p className="text-brand-200 text-sm">All Handcrafted</p>
             </motion.div>
           </motion.div>

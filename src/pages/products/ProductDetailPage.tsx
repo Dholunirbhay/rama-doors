@@ -23,13 +23,13 @@ export default function ProductDetailPage() {
 
     setLoading(true);
 
-    const formattedCode = designCode.replace('-', ' ');
+    const formattedCode = designCode;
     
 
     const { data, error } = await supabase
       .from('products')
       .select('*')
-      .ilike('design_code', formattedCode)
+      .or(`design_code.ilike.${designCode},design_code.ilike.${designCode.replace('-', ' ')}`)
       .single();
 
     if (error || !data) {
@@ -97,7 +97,7 @@ export default function ProductDetailPage() {
                 <img
                   src={product.image_url || FALLBACK}
                   alt={product.name}
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/3] object-contain bg-white"
                   onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK; }}
                 />
               </div>

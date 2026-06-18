@@ -55,7 +55,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-xl text-brand-200 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              {settings.hero_subtitle || 'Handcrafted Luxury for Your Home'} — 31+ unique designs crafted by skilled artisans in Kutch, Gujarat.
+              {settings.hero_subtitle || 'Handcrafted Luxury for Your Home'} — Various designs and customized designs crafted by skilled artisans in Kutch, Gujarat.
             </motion.p>
 
             <motion.div
@@ -90,7 +90,7 @@ export default function HeroSection() {
               className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start"
             >
               {[
-                { icon: Star, text: '31+ Designs' },
+                { icon: Star, text: 'Various designs and customized designs' },
                 { icon: Shield, text: 'Premium Quality' },
                 { icon: Award, text: 'Handcrafted' },
               ].map(({ icon: Icon, text }) => (
@@ -113,7 +113,7 @@ export default function HeroSection() {
               {/* Main image */}
               <div className="rounded-3xl overflow-hidden shadow-2xl h-full">
                 <img
-                  src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="public/images/hero-door.png"
                   alt="Premium Teak Wood Door"
                   className="w-full h-full object-cover"
                 />
@@ -143,7 +143,7 @@ export default function HeroSection() {
                 transition={{ delay: 0.9 }}
                 className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-6 py-3 rounded-2xl shadow-xl text-center whitespace-nowrap"
               >
-                <p className="text-2xl font-display font-bold">RD 01 – RD 31</p>
+                
                 <p className="text-brand-200 text-xs">Exclusive Door Collection</p>
               </motion.div>
             </div>

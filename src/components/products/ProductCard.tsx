@@ -5,7 +5,7 @@ import type { Product } from '../../types';
 import { useSettings } from '../../context/SettingsContext';
 import { getWhatsAppUrl } from '../../lib/utils';
 
-const FALLBACK_IMAGE = 'https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800';
+const FALLBACK_IMAGE = '/images/default-door.webp';
 
 interface ProductCardProps {
   product: Product;
@@ -25,7 +25,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <img
           src={product.image_url || FALLBACK_IMAGE}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-700"
           onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK_IMAGE; }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-brand-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

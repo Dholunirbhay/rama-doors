@@ -195,7 +195,7 @@ export default function ProcessPage() {
               Ready to Order Your Premium Door?
             </h2>
             <p className="text-brand-200 mb-8 max-w-xl mx-auto">
-              Browse our collection of 31+ designs or get in touch to discuss
+              Browse our collection of various designs and customized designs or get in touch to discuss
               your custom requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -17,7 +17,7 @@ const features = [
   {
     icon: Sparkles,
     title: 'Modern Designs',
-    description: 'From classic heritage panels to sleek contemporary pivots, our 31+ designs cater to every architectural style and taste.',
+    description: 'From classic heritage panels to sleek contemporary pivots, our Various designs and customized designs cater to every architectural style and taste.',
     color: 'bg-accent-50 dark:bg-accent-900/20 text-accent-600 dark:text-accent-300',
   },
   {
