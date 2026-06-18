@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, FileText 
 import { supabase } from '../../lib/supabase';
 import { useSettings } from '../../context/SettingsContext';
 import { getWhatsAppUrl, getTelUrl, getMailtoUrl, getGoogleMapsUrl } from '../../lib/utils';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
   const { settings } = useSettings();
@@ -33,6 +34,17 @@ export default function ContactPage() {
 ]);
 
 if (error) throw error;
+      await emailjs.send(
+        'service_taufasf',
+        'template_2olpyyl',
+        {
+          name: formData.name,
+          mobile: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        },
+        'dEEWRCj3g6d_Mcpin'
+      );
       setSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
