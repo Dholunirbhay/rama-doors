@@ -212,18 +212,33 @@ if (error) throw error;
                   Quick Contact
                 </h2>
                 <div className="grid gap-4">
-                  <a
-                    href={getTelUrl(settings.mobile)}
-                    className="flex items-center gap-4 p-4 bg-white dark:bg-brand-800 rounded-xl shadow-md border border-brand-100 dark:border-brand-700 hover:border-brand-400 dark:hover:border-accent-400 transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-700/50 flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-brand-600 dark:text-accent-300" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-neutral-500 dark:text-neutral-400">Phone</p>
-                      <p className="font-semibold text-brand-900 dark:text-white">{settings.mobile}</p>
-                    </div>
-                  </a>
+                 <div className="flex items-center gap-4 p-4 bg-white dark:bg-brand-800 rounded-xl shadow-md border border-brand-100 dark:border-brand-700 hover:border-brand-400 dark:hover:border-accent-400 transition-colors">
+  <div className="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-700/50 flex items-center justify-center">
+    <Phone className="w-6 h-6 text-brand-600 dark:text-accent-300" />
+  </div>
+
+  <div>
+    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+      Phone
+    </p>
+
+    <div className="font-semibold text-brand-900 dark:text-white flex flex-col">
+      <a
+        href={getTelUrl(settings.mobile)}
+        className="hover:text-brand-600 dark:hover:text-accent-300 transition-colors"
+      >
+        {settings.mobile}
+      </a>
+
+      <a
+        href="tel:+918780418018"
+        className="hover:text-brand-600 dark:hover:text-accent-300 transition-colors"
+      >
+        +91 8780418018
+      </a>
+    </div>
+  </div>
+</div>
 
                   <a
                     href={getWhatsAppUrl(settings.whatsapp, 'Hello! I am interested in your teak wood doors. Please share more details.')}

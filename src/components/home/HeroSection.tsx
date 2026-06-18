@@ -115,7 +115,7 @@ export default function HeroSection() {
                 <img
                   src="public/images/hero-door.png"
                   alt="Premium Teak Wood Door"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-900/40 via-transparent to-transparent" />
               </div>

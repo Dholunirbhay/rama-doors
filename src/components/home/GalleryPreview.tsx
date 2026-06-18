@@ -2,15 +2,30 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ZoomIn } from 'lucide-react';
-import { galleryStore } from '../../lib/localStore';
+import { supabase } from '../../lib/supabase';
 import type { GalleryImage } from '../../types';
 
 export default function GalleryPreview() {
   const [images, setImages] = useState<GalleryImage[]>([]);
 
   useEffect(() => {
-    setImages(galleryStore.getAll().slice(0, 9));
-  }, []);
+  async function fetchGallery() {
+    const { data, error } = await supabase
+      .from('gallery')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(9);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    setImages(data || []);
+  }
+
+  fetchGallery();
+}, []);
 
   return (
     <section className="section-padding bg-brand-gradient">
@@ -41,7 +56,7 @@ export default function GalleryPreview() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.07 }}
-              className={`group relative rounded-2xl overflow-hidden bg-brand-800 cursor-pointer ${
+              className={`group relative rounded-2xl overflow-hidden bg-white cursor-pointer ${
                 index === 0 ? 'row-span-2 col-span-1' : 'aspect-square'
               }`}
               style={index === 0 ? undefined : undefined}
@@ -49,7 +64,7 @@ export default function GalleryPreview() {
               <img
                 src={image.image_url}
                 alt={image.title || 'Gallery'}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=600';
                 }}

@@ -205,12 +205,14 @@ export default function ProcessPage() {
               >
                 Browse All Designs
               </Link>
-              <Link
-                to="/contact"
+              <a
+                href="/catalogue/rama-door-catalogue.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-4 rounded-xl font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all"
               >
-                Contact Us
-              </Link>
+                Download Catalogue
+              </a>
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
@@ -23,7 +23,17 @@ import AdminProductForm from './pages/admin/AdminProductForm';
 import AdminGallery from './pages/admin/AdminGallery';
 import AdminInquiries from './pages/admin/AdminInquiries';
 import AdminSettings from './pages/admin/AdminSettings';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function ProtectedRoute({ children }: { children: ReactElement }) {
   const { isAdmin, loading } = useAuth();
@@ -149,6 +159,7 @@ function App() {
       <AuthProvider>
         <SettingsProvider>
           <Router>
+            <ScrollToTop />
             <AppRoutes />
           </Router>
         </SettingsProvider>

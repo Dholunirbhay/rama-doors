@@ -6,12 +6,12 @@ import CTASection from '../../components/home/CTASection';
 const teamMembers = [
   {
     name: 'Pratik Keshrani',
-    role: 'Co-Founder & Director',
+    role: 'Chairman',
     image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
     name: 'Kewal Keshrani',
-    role: 'Co-Founder & Director',
+    role: 'Co-Founder',
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
 ];

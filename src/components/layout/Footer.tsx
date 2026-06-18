@@ -47,7 +47,7 @@ export default function Footer() {
               <img
                 src={settings.logo_url || '/ramadoorslogo.png'}
                 alt="Rama Door"
-                className="h-12 w-auto brightness-0 invert opacity-90"
+                className="h-20 w-auto brightness-0 invert opacity-90"
               />
             </Link>
             <p className="text-brand-400 text-sm leading-relaxed">
@@ -128,14 +128,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href={getTelUrl(settings.mobile)}
-                  className="flex items-center gap-3 text-brand-400 hover:text-accent-300 transition-colors text-sm"
-                >
-                  <Phone className="w-4 h-4 flex-shrink-0 text-accent-400" />
-                  <span>{settings.mobile}</span>
-                </a>
-              </li>
+  <a
+    href={getTelUrl(settings.mobile)}
+    className="flex items-center gap-3 text-brand-400 hover:text-accent-300 transition-colors text-sm"
+  >
+    <Phone className="w-4 h-4 flex-shrink-0 text-accent-400" />
+    <span>{settings.mobile}</span>
+  </a>
+</li>
+
+<li>
+  <a
+    href="tel:+918780418018"
+    className="flex items-center gap-3 text-brand-400 hover:text-accent-300 transition-colors text-sm"
+  >
+    <Phone className="w-4 h-4 flex-shrink-0 text-accent-400" />
+    <span>+91 8780418018</span>
+  </a>
+</li>
               <li>
                 <a
                   href={getWhatsAppUrl(settings.whatsapp)}

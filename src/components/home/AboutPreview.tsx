@@ -31,32 +31,32 @@ export default function AboutPreview() {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="/images/about/about-door-1.avif"
+                    src="/images/about/rd01.png"
                     alt="Workshop craftsmanship"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="/images/about/about-door-2.webp"
+                    src="/images/about/rd02.png"
                     alt="Teak wood grain"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
               <div className="pt-8 space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="/images/about/about-door-3.webp"
+                    src="/images/about/rd03.png"
                     alt="Door detail carving"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="/images/about/about-door-4.avif"
+                    src="/images/about/rd04.png"
                     alt="Premium door"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>

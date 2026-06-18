@@ -80,7 +80,7 @@ const SEED_PRODUCTS: Product[] = [
 ];
 
 const SEED_GALLERY: GalleryImage[] = [
-  { id: 'g1', image_url: 'https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Premium Teak Entrance', category: 'Entrance Doors', created_at: new Date().toISOString() },
+  { id: 'g1', image_url: '/gallery/rd01.png', title: 'Premium Teak Entrance', category: 'Entrance Doors', created_at: new Date().toISOString() },
   { id: 'g2', image_url: 'https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Grand Heritage Door', category: 'Heritage Collection', created_at: new Date().toISOString() },
   { id: 'g3', image_url: 'https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Classic Panel Design', category: 'Classic Collection', created_at: new Date().toISOString() },
   { id: 'g4', image_url: 'https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Arch Teak Door', category: 'Arch Collection', created_at: new Date().toISOString() },
