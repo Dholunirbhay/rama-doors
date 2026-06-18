@@ -29,7 +29,15 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.history.scrollRestoration = 'manual';
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;

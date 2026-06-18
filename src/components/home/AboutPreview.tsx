@@ -63,15 +63,21 @@ export default function AboutPreview() {
             </div>
 
             {/* Stat badge */}
+            {/* Stat badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-8 py-4 rounded-2xl shadow-brand-lg text-center whitespace-nowrap"
+              className="mt-4 mx-auto bg-brand-600 text-white px-4 py-3 rounded-2xl shadow-brand-lg text-center w-fit max-w-[230px] sm:absolute sm:-bottom-5 sm:left-1/2 sm:-translate-x-1/2 sm:mt-0 sm:px-8 sm:py-4 sm:max-w-none"
             >
-              <p className="text-3xl font-display font-bold">Customized designs</p>
-              <p className="text-brand-200 text-sm">All Handcrafted</p>
+              <p className="text-base sm:text-3xl font-display font-bold leading-tight">
+                Customized designs
+              </p>
+
+              <p className="text-brand-200 text-xs sm:text-sm">
+                All Handcrafted
+              </p>
             </motion.div>
           </motion.div>
 

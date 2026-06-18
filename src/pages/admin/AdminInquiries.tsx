@@ -145,14 +145,14 @@ export default function AdminInquiries() {
                   : 'border-brand-400 dark:border-accent-500'
               }`}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 min-w-0">
                 <div
                   className={`w-3 h-3 rounded-full mt-2 flex-shrink-0 ${
                     inquiry.is_read ? 'bg-brand-300' : 'bg-accent-500'
                   }`}
                 />
-                <div className="flex-1">
-                  <div className="flex items-start justify-between gap-4 mb-2">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                     <div>
                       <h3 className="font-semibold text-brand-900 dark:text-white">
                         {inquiry.name}
@@ -180,7 +180,7 @@ export default function AdminInquiries() {
                         )}
                       </div>
                     </div>
-                    <span className="text-sm text-neutral-400 flex-shrink-0">
+                    <span className="text-xs sm:text-sm text-neutral-400 flex-shrink-0">
                       {new Date(inquiry.created_at).toLocaleDateString('en-IN', {
                         day: 'numeric',
                         month: 'short',
@@ -193,11 +193,11 @@ export default function AdminInquiries() {
                   <p className="text-neutral-700 dark:text-neutral-300 mt-4 whitespace-pre-wrap">
                     {inquiry.message}
                   </p>
-                  <div className="flex items-center gap-3 mt-4 pt-4 border-t border-brand-100 dark:border-brand-700">
+                  <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-brand-100 dark:border-brand-700">
                     {!inquiry.is_read && (
                       <button
                         onClick={() => markAsRead(inquiry.id)}
-                        className="flex items-center gap-2 text-sm text-brand-600 dark:text-accent-300 hover:underline"
+                        className="flex items-center justify-center gap-1 text-xs sm:text-sm text-brand-600 dark:text-accent-300 hover:underline text-center"
                       >
                         <CheckCircle className="w-4 h-4" />
                         Mark as read
@@ -211,14 +211,14 @@ export default function AdminInquiries() {
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-brand-600 dark:text-accent-300 hover:underline"
+                        className="flex items-center justify-center gap-1 text-xs sm:text-sm text-brand-600 dark:text-accent-300 hover:underline text-center"
                       >
                         Reply on WhatsApp
                       </a>
                     )}
                     <button
                       onClick={() => handleDelete(inquiry.id)}
-                      className="flex items-center gap-2 text-sm text-red-500 hover:underline ml-auto"
+                      className="flex items-center justify-center gap-1 text-xs sm:text-sm text-red-500 hover:underline"
                     >
                       <Trash2 className="w-4 h-4" />
                       Delete
