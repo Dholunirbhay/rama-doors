@@ -33,7 +33,7 @@ export interface ContactInquiry {
   id: string;
   name: string;
   email?: string;
-  phone?: string;
+  mobile?: string;
   message: string;
   is_read: boolean;
   created_at: string;

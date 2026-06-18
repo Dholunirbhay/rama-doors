@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, CheckCircle, Trash2 } from 'lucide-react';
+import { Mail, Phone, CheckCircle, Trash2, Search } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import type { ContactInquiry } from '../../types';
 import { getWhatsAppUrl, getMailtoUrl } from '../../lib/utils';
@@ -9,6 +9,7 @@ export default function AdminInquiries() {
   const [inquiries, setInquiries] = useState<ContactInquiry[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'unread' | 'read'>('all');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetchInquiries();
@@ -26,6 +27,7 @@ export default function AdminInquiries() {
     console.error(error);
     setInquiries([]);
   } else {
+    console.log('Supabase inquiries data:', data);
     setInquiries(data || []);
   }
 
@@ -65,10 +67,21 @@ export default function AdminInquiries() {
 }
 
   const filteredInquiries = inquiries.filter((i) => {
-    if (filter === 'unread') return !i.is_read;
-    if (filter === 'read') return i.is_read;
-    return true;
-  });
+  const matchesFilter =
+    filter === 'unread' ? !i.is_read :
+    filter === 'read' ? i.is_read :
+    true;
+
+  const searchText = search.toLowerCase();
+
+  const matchesSearch =
+    i.name?.toLowerCase().includes(searchText) ||
+    i.email?.toLowerCase().includes(searchText) ||
+    i.mobile?.toLowerCase().includes(searchText) ||
+    i.message?.toLowerCase().includes(searchText);
+
+  return matchesFilter && matchesSearch;
+});
 
   const unreadCount = inquiries.filter((i) => !i.is_read).length;
 
@@ -99,7 +112,17 @@ export default function AdminInquiries() {
           ))}
         </div>
       </div>
+      <div className="relative mb-6">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
 
+        <input
+          type="text"
+          placeholder="Search by name, email, phone or message..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-3 rounded-xl border border-brand-200 dark:border-brand-700 bg-white dark:bg-brand-800 text-brand-900 dark:text-white focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none"
+          />
+      </div>    
       {loading ? (
         <div className="text-center py-12 text-neutral-500">Loading...</div>
       ) : filteredInquiries.length === 0 ? (
@@ -144,15 +167,15 @@ export default function AdminInquiries() {
                             {inquiry.email}
                           </a>
                         )}
-                        {inquiry.phone && (
+                        {inquiry.mobile && (
                           <a
-                            href={getWhatsAppUrl(inquiry.phone)}
+                            href={getWhatsAppUrl(inquiry.mobile)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-1 hover:text-accent-500 transition-colors"
                           >
                             <Phone className="w-4 h-4" />
-                            {inquiry.phone}
+                            {inquiry.mobile}
                           </a>
                         )}
                       </div>
@@ -180,10 +203,10 @@ export default function AdminInquiries() {
                         Mark as read
                       </button>
                     )}
-                    {inquiry.phone && (
+                    {inquiry.mobile && (
                       <a
                         href={getWhatsAppUrl(
-                          inquiry.phone,
+                          inquiry.mobile,
                           `Hi ${inquiry.name}, thank you for your inquiry. `
                         )}
                         target="_blank"
