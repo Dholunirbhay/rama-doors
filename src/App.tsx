@@ -3,7 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
 import Layout from './components/layout/Layout';
-import LoadingPage from './components/ui/Loading';
+import { LoadingPage } from './components/ui/Loading';
 
 // Pages
 import HomePage from './pages/home/HomePage';
@@ -134,27 +134,42 @@ function AppRoutes() {
 
       {/* 404 */}
       <Route
-        path="*"
-        element={
-          <Layout>
-            <div className="min-h-[60vh] flex items-center justify-center">
-              <div className="text-center">
-                <h1 className="text-6xl font-display font-bold text-brand-700 mb-4">404</h1>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-6">Page not found</p>
-                <a href="/" className="btn-primary">
-                  Go Home
-                </a>
-              </div>
-            </div>
-          </Layout>
-        }
-      />
+  path="*"
+  element={
+    <Layout>
+      <div className="min-h-[80vh] flex items-center justify-center bg-brand-gradient px-4">
+        <div className="text-center max-w-2xl">
+          <h1 className="text-8xl md:text-9xl font-display font-bold text-white mb-4">
+            404
+          </h1>
+
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            Door Not Found
+          </h2>
+
+          <p className="text-brand-200 text-lg mb-8">
+            Looks like you've opened a door that doesn't exist.
+            Let's get you back to the right entrance.
+          </p>
+
+          <a
+            href="/"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold bg-white text-brand-700 hover:bg-brand-50 shadow-xl transition-all"
+          >
+            Return to Home
+          </a>
+        </div>
+      </div>
+    </Layout>
+  }
+/>
     </Routes>
   );
 }
 
 function App() {
   return (
+     
     <ThemeProvider>
       <AuthProvider>
         <SettingsProvider>
