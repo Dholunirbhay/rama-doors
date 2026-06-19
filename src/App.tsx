@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
 import Layout from './components/layout/Layout';
 import { LoadingPage } from './components/ui/Loading';
+import BackToTop from './components/ui/BackToTop';
 
 // Pages
 import HomePage from './pages/home/HomePage';
@@ -77,6 +78,8 @@ function AdminRoutes() {
 
 function AppRoutes() {
   return (
+    <>
+    
     <Routes>
       {/* Public Routes */}
       <Route
@@ -172,6 +175,9 @@ function AppRoutes() {
   }
 />
     </Routes>
+
+    <BackToTop />
+    </>
   );
 }
 
