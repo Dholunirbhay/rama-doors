@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
+import { useAuth } from './context/useAuth';
 import { SettingsProvider } from './context/SettingsContext';
 import Layout from './components/layout/Layout';
 import { LoadingPage } from './components/ui/Loading';
@@ -176,7 +177,7 @@ function AppRoutes() {
 />
     </Routes>
 
-    <BackToTop />
+    
     </>
   );
 }

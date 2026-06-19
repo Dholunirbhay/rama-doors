@@ -14,7 +14,7 @@ import {
   Moon,
 } from 'lucide-react';
 import { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/useAuth';
 import Logo from '../../components/ui/Logo';
 import { useTheme } from '../../context/ThemeContext';
 
