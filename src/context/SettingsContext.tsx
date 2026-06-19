@@ -25,7 +25,7 @@ const defaultSettings: AppSettings = {
   hero_subtitle: 'Handcrafted Luxury for Your Home',
 };
 
-const SettingsContext = createContext<SettingsContextType>({
+export const SettingsContext = createContext<SettingsContextType>({
   settings: defaultSettings,
   loading: true,
   refreshSettings: () => {},
@@ -56,8 +56,4 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
       {children}
     </SettingsContext.Provider>
   );
-}
-
-export function useSettings() {
-  return useContext(SettingsContext);
 }

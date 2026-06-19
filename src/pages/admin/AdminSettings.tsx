@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Save } from 'lucide-react';
 import { settingsStore } from '../../lib/localStore';
 import type { AppSettings } from '../../types';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 
 export default function AdminSettings() {
   const { settings: currentSettings, refreshSettings } = useSettings();

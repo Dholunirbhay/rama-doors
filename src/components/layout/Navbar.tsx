@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Phone } from 'lucide-react';
 import Logo from '../ui/Logo';
 import { useTheme } from '../../context/ThemeContext';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import { getTelUrl } from '../../lib/utils';
 
 const navLinks = [

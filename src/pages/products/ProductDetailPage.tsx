@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Phone, MessageCircle, Star, Shield, TreePine } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import type { Product } from '../../types';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import { getWhatsAppUrl, getTelUrl } from '../../lib/utils';
 import ProductCard from '../../components/products/ProductCard';
 

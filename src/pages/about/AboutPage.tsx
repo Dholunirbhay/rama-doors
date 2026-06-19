@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, Target, Eye, Users } from 'lucide-react';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import CTASection from '../../components/home/CTASection';
 
 const teamMembers = [

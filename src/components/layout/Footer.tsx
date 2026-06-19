@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Linkedin, FileText } from 'lucide-react';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import { getWhatsAppUrl, getTelUrl, getMailtoUrl, getGoogleMapsUrl } from '../../lib/utils';
 
 const footerNav = [

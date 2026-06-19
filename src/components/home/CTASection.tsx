@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import { getWhatsAppUrl, getTelUrl, getMailtoUrl, getGoogleMapsUrl } from '../../lib/utils';
 
 export default function CTASection() {

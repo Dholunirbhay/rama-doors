@@ -1,5 +1,5 @@
 import { cn } from '../../lib/utils';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 
 interface LogoProps {
   className?: string;

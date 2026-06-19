@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Eye, MessageCircle, Star } from 'lucide-react';
 import type { Product } from '../../types';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings } from '../../context/useSettings';
 import { getWhatsAppUrl } from '../../lib/utils';
 
 const FALLBACK_IMAGE = '/images/default-door.webp';
