@@ -191,6 +191,7 @@ function App() {
           <Router>
             <ScrollToTop />
             <AppRoutes />
+            <BackToTop />
           </Router>
         </SettingsProvider>
       </AuthProvider>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import { createContext,  useState, useEffect, ReactNode, useCallback } from 'react';
 import { settingsStore, initLocalStore } from '../lib/localStore';
 import type { AppSettings } from '../types';
 
