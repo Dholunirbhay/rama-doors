@@ -113,7 +113,7 @@ export default function HeroSection() {
               {/* Main image */}
               <div className="rounded-3xl overflow-hidden shadow-2xl h-full">
                 <img
-                  src="public/images/hero-door.png"
+                  src="/images/hero-door.png"
                   alt="Premium Teak Wood Door"
                   className="w-full h-full object-contain"
                 />

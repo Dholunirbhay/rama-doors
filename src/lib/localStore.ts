@@ -249,8 +249,8 @@ export const inquiriesStore = {
 };
 
 // ─── Admin Auth ───────────────────────────────────────────────────────────────
-const ADMIN_EMAIL = 'admin@ramadoor.com';
-const ADMIN_PASSWORD = 'Rama@2026#Admin';
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || 'admin@ramadoor.com';
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || '';
 
 export const adminAuth = {
   login(email: string, password: string): boolean {

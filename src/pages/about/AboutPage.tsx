@@ -78,7 +78,7 @@ export default function AboutPage() {
             >
               <div className="rounded-3xl overflow-hidden shadow-brand-lg">
                 <img
-                  src="public/images/about-page.webp"
+                  src="/images/about-page.webp"
                   alt="Rama Door Workshop"
                   className="w-full h-[500px] object-cover"
                 />
