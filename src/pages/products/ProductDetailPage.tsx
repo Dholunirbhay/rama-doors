@@ -23,7 +23,6 @@ export default function ProductDetailPage() {
 
     setLoading(true);
 
-    const formattedCode = designCode;
     
 
     const { data, error } = await supabase
