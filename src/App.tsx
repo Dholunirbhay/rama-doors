@@ -1,3 +1,4 @@
+import { ReactElement, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider } from './context/AuthContext';
@@ -25,7 +26,7 @@ const AdminProductForm = lazy(() => import('./pages/admin/AdminProductForm'));
 const AdminGallery = lazy(() => import('./pages/admin/AdminGallery'));
 const AdminInquiries = lazy(() => import('./pages/admin/AdminInquiries'));
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
-import { ReactElement, useEffect, lazy, Suspense } from 'react';
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
