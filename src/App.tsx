@@ -17,15 +17,15 @@ import ProcessPage from './pages/process/ProcessPage';
 import ContactPage from './pages/contact/ContactPage';
 
 // Admin Pages
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminLayout from './pages/admin/AdminLayout';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminProducts from './pages/admin/AdminProducts';
-import AdminProductForm from './pages/admin/AdminProductForm';
-import AdminGallery from './pages/admin/AdminGallery';
-import AdminInquiries from './pages/admin/AdminInquiries';
-import AdminSettings from './pages/admin/AdminSettings';
-import { ReactElement, useEffect } from 'react';
+const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
+const AdminLayout = lazy(() => import('./pages/admin/AdminLayout'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
+const AdminProducts = lazy(() => import('./pages/admin/AdminProducts'));
+const AdminProductForm = lazy(() => import('./pages/admin/AdminProductForm'));
+const AdminGallery = lazy(() => import('./pages/admin/AdminGallery'));
+const AdminInquiries = lazy(() => import('./pages/admin/AdminInquiries'));
+const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
+import { ReactElement, useEffect, lazy, Suspense } from 'react';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -61,7 +61,8 @@ function ProtectedRoute({ children }: { children: ReactElement }) {
 
 function AdminRoutes() {
   return (
-    <ProtectedRoute>
+  <ProtectedRoute>
+    <Suspense fallback={<LoadingPage />}>
       <AdminLayout>
         <Routes>
           <Route index element={<AdminDashboard />} />
@@ -73,8 +74,9 @@ function AdminRoutes() {
           <Route path="settings" element={<AdminSettings />} />
         </Routes>
       </AdminLayout>
-    </ProtectedRoute>
-  );
+    </Suspense>
+  </ProtectedRoute>
+);
 }
 
 function AppRoutes() {
