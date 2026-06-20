@@ -30,7 +30,7 @@ export default function AdminInquiries() {
     console.log('Supabase inquiries data:', data);
     setInquiries(data || []);
   }
-
+ 
   setLoading(false);
 }
 
@@ -181,12 +181,14 @@ export default function AdminInquiries() {
                       </div>
                     </div>
                     <span className="text-xs sm:text-sm text-neutral-400 flex-shrink-0">
-                      {new Date(inquiry.created_at).toLocaleDateString('en-IN', {
+                      {new Date(inquiry.created_at + 'Z').toLocaleString('en-IN', {
+                        timeZone: 'Asia/Kolkata',
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric',
                         hour: '2-digit',
                         minute: '2-digit',
+                        hour12: true,
                       })}
                     </span>
                   </div>

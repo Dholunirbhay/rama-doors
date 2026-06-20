@@ -31,14 +31,14 @@ export default function AboutPreview() {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="/images/about/rd01.png"
+                    src="/images/about/rd01.webp"
                     alt="Workshop craftsmanship"
                     className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="/images/about/rd02.png"
+                    src="/images/about/rd13.webp"
                     alt="Teak wood grain"
                     className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
@@ -47,14 +47,14 @@ export default function AboutPreview() {
               <div className="pt-8 space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-square">
                   <img
-                    src="/images/about/rd03.png"
+                    src="/images/about/rd20.webp"
                     alt="Door detail carving"
                     className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                   <img
-                    src="/images/about/rd04.png"
+                    src="/images/about/rd30.webp"
                     alt="Premium door"
                     className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                   />
